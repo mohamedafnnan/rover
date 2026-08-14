@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image?: string;
+  align?: 'left' | 'center';
+}
+const { eyebrow, title, description, image, align = 'left' } = Astro.props;
+const centered = align === 'center';
+---
+<section class="section-pad">
+  <div class="shell">
+    <div class:list={["glass-strong overflow-hidden rounded-[28px] p-7 md:p-10", image && "grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-center"]}>
+      <div class:list={[centered && !image && 'mx-auto max-w-3xl text-center']}>
+        <div class="kicker">{eyebrow}</div>
+        <h1 class="h2 mt-5 max-w-4xl">{title}</h1>
+        <p class="lead mt-5 max-w-3xl">{description}</p>
+      </div>
+      {image && (
+        <div class="overflow-hidden rounded-[24px] border border-line bg-white/5">
+          <img src={image} alt={title} class="h-full w-full object-cover" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

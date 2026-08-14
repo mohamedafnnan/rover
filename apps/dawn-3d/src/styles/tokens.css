@@ -1,0 +1,108 @@
+/* DAWN · design tokens
+   ------------------------------------------------------------------
+   Single source of truth for color, typography, spacing, motion.
+   Every UI surface (HUD, Codex, panels, boot overlay) reads from
+   these variables — no hardcoded colors anywhere else.               */
+
+:root {
+  /* Palette — NASA-inspired industrial with Martian warmth. */
+  --c-void:        #06080b;   /* deep sky, void space              */
+  --c-obsidian:    #0a0f14;   /* base surfaces                    */
+  --c-graphite:    #141a20;   /* elevated surfaces                */
+  --c-fog:         #1f2830;   /* dividers, subtle strokes         */
+  --c-steel:       #94a3b1;   /* secondary text                   */
+  --c-bone:        #e8ecef;   /* primary text                     */
+  --c-white:       #ffffff;
+
+  --c-mars-1:      #f2a35d;   /* dust highlight                   */
+  --c-mars-2:      #c66b1e;   /* signature orange (from source)   */
+  --c-mars-3:      #7a3a15;   /* deep terracotta                  */
+  --c-ember:       #ff5b2e;   /* warning / high-signal accent     */
+  --c-signal:      #7fd0d4;   /* telemetry / cyan cue             */
+  --c-plasma:      #c084ff;   /* AI / autonomy accent             */
+  --c-sun:         #ffd28a;   /* sun glow                         */
+
+  /* Semantic tokens map palette → intent. Never reference palette
+     tokens directly from components — use these.                    */
+  --bg-void:       var(--c-void);
+  --bg-surface:    color-mix(in oklab, var(--c-obsidian) 92%, transparent);
+  --bg-panel:      color-mix(in oklab, var(--c-graphite) 88%, transparent);
+  --bg-elevated:   color-mix(in oklab, var(--c-graphite) 94%, transparent);
+  --stroke-hair:   color-mix(in oklab, var(--c-bone) 8%, transparent);
+  --stroke-line:   color-mix(in oklab, var(--c-bone) 14%, transparent);
+  --text-primary:  var(--c-bone);
+  --text-muted:    color-mix(in oklab, var(--c-bone) 62%, transparent);
+  --text-faint:    color-mix(in oklab, var(--c-bone) 38%, transparent);
+  --accent:        var(--c-mars-2);
+  --accent-hi:     var(--c-mars-1);
+  --accent-lo:     var(--c-mars-3);
+  --signal:        var(--c-signal);
+
+  /* Type scale — modular, 1.25 ratio, capped for readability. */
+  --font-display:  'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body:     'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:     'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-eyebrow:    0.72rem;
+  --fs-body:       0.94rem;
+  --fs-lead:       1.05rem;
+  --fs-h4:         1.15rem;
+  --fs-h3:         1.4rem;
+  --fs-h2:         1.75rem;
+  --fs-h1:         2.5rem;
+  --fs-display:    clamp(3rem, 6vw, 5.25rem);
+
+  --lh-tight:      1.1;
+  --lh-body:       1.55;
+
+  --ls-eyebrow:    0.24em;
+  --ls-display:    -0.02em;
+
+  /* Spacing scale — 4px base. */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-7:  32px;
+  --s-8:  40px;
+  --s-9:  56px;
+  --s-10: 72px;
+
+  /* Radii, shadows, timing. */
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  16px;
+  --r-xl:  22px;
+
+  --e-1: 0 1px 0 0 var(--stroke-hair);
+  --e-2: 0 8px 24px -12px rgba(0, 0, 0, 0.6), 0 1px 0 0 var(--stroke-hair);
+  --e-3: 0 24px 60px -20px rgba(0, 0, 0, 0.75), 0 2px 0 0 var(--stroke-hair);
+
+  --t-fast:   140ms;
+  --t-med:    280ms;
+  --t-slow:   520ms;
+  --t-cine:   1200ms;
+
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emphatic: cubic-bezier(0.22, 1.4, 0.36, 1);
+
+  --z-scene: 0;
+  --z-hud:   50;
+  --z-codex: 60;
+  --z-prompt: 70;
+  --z-toast: 80;
+  --z-boot:  100;
+  --z-modal: 120;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t-med:  0ms;
+    --t-slow: 0ms;
+    --t-cine: 0ms;
+  }
+}

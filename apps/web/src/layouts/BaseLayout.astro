@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+const canonical = new URL(path, Astro.site);
+const nav = [
+  ['Home', '/'],
+  ['Mission', '/mission'],
+  ['DAWN', '/dawn'],
+  ['Engineering', '/engineering'],
+  ['IRC 2026', '/irc-2026'],
+  ['Team', '/team'],
+  ['Sponsors', '/sponsors'],
+  ['3D Mode', '/dawn-3d'],
+  ['Contact', '/contact'],
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/fisat/images/Robo/about1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff7a2f" />
+    <link rel="icon" type="image/png" href="/fisat/images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content</a>
+    <header class="sticky top-0 z-50 border-b border-line/70 bg-black/25 backdrop-blur-xl">
+      <div class="shell flex flex-wrap items-center justify-between gap-4 py-4">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/fisat/images/logo.png" alt="FISAT Rover Team logo" class="h-11 w-11 rounded-full border border-line bg-white/5 object-cover p-1" />
+          <div>
+            <div class="text-[10px] uppercase tracking-[0.28em] text-orange-soft">FISAT Rover Team</div>
+            <div class="font-display text-lg font-semibold">DAWN</div>
+          </div>
+        </a>
+        <nav aria-label="Primary" class="flex flex-wrap items-center justify-end gap-2 text-sm text-muted">
+          {nav.map(([label, href]) => (
+            <a href={href} class={`rounded-full border px-3 py-2 transition hover:border-orange/35 hover:bg-white/8 hover:text-text ${Astro.url.pathname === href ? 'border-orange/40 bg-white/6 text-text' : 'border-line bg-white/3'}`}>
+              {label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="content">
+      <slot />
+    </main>
+    <footer class="border-t border-line/70 bg-black/30">
+      <div class="shell grid gap-8 py-10 md:grid-cols-[1.6fr_1fr_1fr]">
+        <div>
+          <div class="eyebrow">Mission-ready platform</div>
+          <h2 class="mt-3 font-display text-2xl">DAWN, presented with a main site first and an optional 3D inspection mode.</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-muted">This rebuild keeps the public site crawlable, factual, and accessible while treating WebGL as an enhancement rather than a requirement.</p>
+        </div>
+        <div>
+          <div class="eyebrow">Navigate</div>
+          <ul class="mt-4 grid gap-2 text-sm text-muted">
+            {nav.map(([label, href]) => (
+              <li><a href={href} class="hover:text-text">{label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div class="eyebrow">External links</div>
+          <ul class="mt-4 grid gap-2 text-sm text-muted">
+            <li><a href="https://fisatrover.in/" target="_blank" rel="noreferrer" class="hover:text-text">Official public site</a></li>
+            <li><a href="https://fisat.ac.in/event/international-rover-challenge-irc-2026/" target="_blank" rel="noreferrer" class="hover:text-text">FISAT IRC 2026 event post</a></li>
+            <li><a href="https://www.instagram.com/fisatroverteam/" target="_blank" rel="noreferrer" class="hover:text-text">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/fisat-rover" target="_blank" rel="noreferrer" class="hover:text-text">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

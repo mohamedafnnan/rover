@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { departments } from '../data/site';
+---
+<BaseLayout title="Engineering — FISAT Rover Team" description="Engineering groups behind DAWN." path="/engineering">
+  <PageHero eyebrow="Engineering" title="Subsystem storytelling without fake schematics." description="The page uses the official public department blurbs and team-role evidence, then turns them into a cleaner engineering-facing information architecture." image="/fisat/images/Robo/about1.jpg" />
+  <section class="pb-16">
+    <div class="shell">
+      <SectionHeading eyebrow="Departments" title="Core public-facing engineering groups" description="Descriptions below are adapted conservatively from the official site’s public wording." />
+      <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {departments.map((dept) => (
+          <article class="glass rounded-[22px] p-6 card-hover">
+            <div class="kicker">{dept.name}</div>
+            <p class="copy mt-5">{dept.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

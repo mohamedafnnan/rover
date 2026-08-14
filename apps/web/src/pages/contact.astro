@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { contact } from '../data/site';
+---
+<BaseLayout title="Contact — FISAT Rover Team" description="Contact details for the FISAT Rover Team." path="/contact">
+  <PageHero eyebrow="Contact" title="A straightforward contact page with verified public channels only." description="No fake pipelines, no dead forms, and no unsupported sponsor automation claims. Just the official institutional address and social channels." />
+  <section class="pb-20">
+    <div class="shell grid gap-6 lg:grid-cols-2">
+      <article class="glass rounded-[24px] p-7 md:p-8">
+        <div class="eyebrow">Direct channel</div>
+        <h2 class="h2 mt-3">Email the team</h2>
+        <a href={`mailto:${contact.email}`} class="mt-6 inline-flex text-2xl font-semibold text-text">{contact.email}</a>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={contact.instagram} target="_blank" rel="noreferrer" class="btn-secondary">Instagram</a>
+          <a href={contact.linkedin} target="_blank" rel="noreferrer" class="btn-secondary">LinkedIn</a>
+          <a href={contact.institute} target="_blank" rel="noreferrer" class="btn-secondary">FISAT</a>
+        </div>
+      </article>
+      <article class="glass rounded-[24px] p-7 md:p-8">
+        <div class="eyebrow">Institutional address</div>
+        <h2 class="h2 mt-3">Federal Institute of Science and Technology</h2>
+        <p class="lead mt-5">{contact.address}</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

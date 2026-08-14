@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PortalCard from '../components/PortalCard.astro';
+import { verifiedSpecs, siteMeta } from '../data/site';
+---
+<BaseLayout title="DAWN — Rover Overview" description="Verified rover overview for DAWN." path="/dawn">
+  <PageHero eyebrow="DAWN" title="The rover page is a technical brief, not a fictional data sheet." description="This version keeps the story sharp: what DAWN is, what the official site says it does, and how the 3D inspection mode fits into the product architecture." image="/fisat/images/Robo/gal1.jpg" />
+  <section class="pb-12">
+    <div class="shell grid gap-8 lg:grid-cols-[1.15fr_.85fr]">
+      <div>
+        <SectionHeading eyebrow="Verified public facts" title="Published rover capabilities" description="Each signal here can be traced back to the official site or the public team modal copy." />
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          {verifiedSpecs.map((spec) => (
+            <div class="glass rounded-[20px] p-5 card-hover">
+              <div class="text-xs uppercase tracking-[0.24em] text-orange-soft">{spec.label}</div>
+              <div class="mt-3 text-lg font-semibold text-text">{spec.value}</div>
+              <div class="mt-3 text-xs uppercase tracking-[0.18em] text-faint">{spec.source}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <PortalCard />
+    </div>
+  </section>
+</BaseLayout>

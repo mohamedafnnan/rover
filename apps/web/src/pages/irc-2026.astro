@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { irc } from '../data/site';
+---
+<BaseLayout title="IRC 2026 — FISAT Rover Team" description="Public competition log for IRC 2026." path="/irc-2026">
+  <PageHero eyebrow="IRC 2026" title={irc.title} description={irc.summary} image="https://fisat.ac.in/wp-content/uploads/2026/02/team1.jpeg" />
+  <section class="pb-20">
+    <div class="shell grid gap-5">
+      {irc.timeline.map((item) => (
+        <article class="glass rounded-[24px] p-6 md:p-8">
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="kicker">{item.day}</div>
+            <h2 class="font-display text-2xl">{item.title}</h2>
+          </div>
+          <p class="lead mt-5">{item.body}</p>
+          <a href={item.source} target="_blank" rel="noreferrer" class="mt-4 inline-flex text-xs uppercase tracking-[0.24em] text-orange-soft">Source ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

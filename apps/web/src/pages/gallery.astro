@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { gallery } from '../data/site';
+---
+<BaseLayout title="Gallery — FISAT Rover Team" description="Official rover and campaign image gallery." path="/gallery">
+  <PageHero eyebrow="Gallery" title="Official rover imagery, reorganized into a calmer gallery system." description="The original site mixes galleries into several sections. This version separates them into a proper image archive." image="/fisat/images/Robo/gal2.jpg" />
+  <section class="pb-20">
+    <div class="shell">
+      <GalleryGrid items={gallery} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,19 @@
+{
+  "name": "fisat-dawn-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.4",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

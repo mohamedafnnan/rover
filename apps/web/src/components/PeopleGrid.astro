@@ -1,0 +1,29 @@
+---
+interface Person {
+  name: string;
+  role: string;
+  photo: string;
+}
+interface Props {
+  title: string;
+  people: Person[];
+  compact?: boolean;
+}
+const { title, people, compact = false } = Astro.props;
+---
+<section class="mt-10">
+  <h3 class="h3 mb-5">{title}</h3>
+  <div class:list={["grid gap-4", compact ? "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "sm:grid-cols-2 lg:grid-cols-4"]}>
+    {people.map((person) => (
+      <article class:list={["glass rounded-[20px] p-3 card-hover", compact && "md:flex md:items-center md:gap-4"]}>
+        <div class:list={["overflow-hidden rounded-[16px] border border-line bg-white/5", compact ? "aspect-square md:h-24 md:w-24 md:shrink-0" : "aspect-[4/4.7]"]}>
+          <img src={person.photo} alt={person.name} class="h-full w-full object-cover" loading="lazy" />
+        </div>
+        <div class="mt-3 md:mt-0">
+          <h4 class:list={["font-semibold text-text", compact ? "text-sm md:text-base" : "text-base"]}>{person.name}</h4>
+          <p class:list={["mt-1 text-text/80", compact ? "text-xs leading-6 md:text-sm" : "text-sm"]}>{person.role}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

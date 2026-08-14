@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { achievements } from '../data/site';
+---
+<BaseLayout title="Achievements — FISAT Rover Team" description="Public achievements and claims ledger." path="/achievements">
+  <PageHero eyebrow="Achievements" title="A compact achievements page with sources attached." description="This page only includes public claims that could be traced during the rebuild process." image="https://fisat.ac.in/wp-content/uploads/2026/02/prize-scaled.jpeg" />
+  <section class="pb-20">
+    <div class="shell grid gap-5">
+      {achievements.map((item) => (
+        <article class="glass rounded-[24px] p-6 md:p-7">
+          <h2 class="font-display text-2xl">{item.title}</h2>
+          <p class="lead mt-4">{item.body}</p>
+          <a href={item.source} target="_blank" rel="noreferrer" class="mt-4 inline-flex text-xs uppercase tracking-[0.24em] text-orange-soft">Source ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

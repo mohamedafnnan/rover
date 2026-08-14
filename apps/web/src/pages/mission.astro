@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { mission, siteMeta, contentGaps } from '../data/site';
+---
+<BaseLayout title="Mission — FISAT Rover Team DAWN" description="Mission overview for the FISAT Rover Team and DAWN." path="/mission">
+  <PageHero eyebrow="Mission" title="A public-facing mission page built from published facts." description={mission.about} image="/fisat/images/Robo/about1.jpg" />
+  <section class="pb-12">
+    <div class="shell grid gap-6 lg:grid-cols-2">
+      <article class="glass rounded-[24px] p-7">
+        <SectionHeading eyebrow="Program brief" title={mission.builtTitle} description={mission.built} />
+      </article>
+      <article class="glass rounded-[24px] p-7">
+        <SectionHeading eyebrow="Content discipline" title="What is intentionally not claimed" description="The rebuild omits subsystem dimensions, performance numbers, sensor inventories, and mission metrics unless they are present in the official public sources." />
+        <ul class="mt-6 space-y-3 text-sm leading-7 text-muted">
+          {contentGaps.map((gap) => <li class="rounded-[16px] border border-line bg-white/4 px-4 py-3">{gap}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

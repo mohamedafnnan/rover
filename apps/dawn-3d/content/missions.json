@@ -1,0 +1,39 @@
+{
+  "missions": [
+    {
+      "id": "first-drive",
+      "title": "First Drive",
+      "brief": "Reach Mission Control to sync your rover with the FISAT ground station.",
+      "target": "mission-control",
+      "reward": "Onboard telemetry unlocked."
+    },
+    {
+      "id": "meet-the-team",
+      "title": "Meet the Team",
+      "brief": "Visit all four core department labs.",
+      "targets": ["mechanical-workshop", "electrical-lab", "software-center", "robotics-lab"],
+      "reward": "Team dossier unlocked."
+    },
+    {
+      "id": "sample-hunt",
+      "title": "Sample Hunt",
+      "brief": "Scan three rocks scattered around the Testing Area.",
+      "scanCount": 3,
+      "reward": "Science payload readout unlocked."
+    },
+    {
+      "id": "arm-check",
+      "title": "Arm Check",
+      "brief": "Deploy the robotic arm at the Robotic Arm Bay.",
+      "target": "robotic-arm-bay",
+      "reward": "Arm inspector unlocked."
+    },
+    {
+      "id": "panorama",
+      "title": "Panorama",
+      "brief": "Take a panoramic photo from the ridge above Gallery Canyon.",
+      "target": "gallery-canyon",
+      "reward": "Cinematic camera unlocked."
+    }
+  ]
+}

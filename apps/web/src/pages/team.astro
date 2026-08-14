@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PeopleGrid from '../components/PeopleGrid.astro';
+import { patrons, mentors, teamMembers } from '../data/site';
+---
+<BaseLayout title="Team — FISAT Rover Team" description="Public roster for the FISAT Rover Team." path="/team">
+  <PageHero eyebrow="The Team" title="People first, still presented with engineering-grade polish." description="The official roster is preserved and reorganized into clearer patron, mentor, and member groups without changing names or roles." image="https://fisat.ac.in/wp-content/uploads/2026/02/team-3.jpeg" />
+  <section class="pb-20">
+    <div class="shell">
+      <PeopleGrid title="Patrons" people={patrons} />
+      <PeopleGrid title="Mentors" people={mentors} />
+      <PeopleGrid title="Team Members" people={teamMembers} compact={true} />
+    </div>
+  </section>
+</BaseLayout>

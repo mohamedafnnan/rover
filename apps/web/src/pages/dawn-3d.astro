@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout title="DAWN 3D Mode" description="Interactive 3D rover inspection mode for DAWN." path="/dawn-3d">
+  <PageHero eyebrow="3D Mode" title="DAWN 3D is discoverable, optional, and clearly separated from the main content model." description="The legacy ARES WebGL implementation has been repositioned as a dedicated inspection mode. If WebGL is unavailable or fails to boot, the 3D app retains its own fallback path and the main website remains fully usable." />
+  <section class="pb-20">
+    <div class="shell grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
+      <div class="glass rounded-[24px] p-7 md:p-8">
+        <div class="eyebrow">What changed</div>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-muted">
+          <li class="rounded-[16px] border border-line bg-white/4 px-4 py-3">ARES branding is replaced by DAWN branding.</li>
+          <li class="rounded-[16px] border border-line bg-white/4 px-4 py-3">Main-site integration now treats 3D as an enhancement instead of the whole website.</li>
+          <li class="rounded-[16px] border border-line bg-white/4 px-4 py-3">The existing WebGL architecture, loading flow, and fallback logic are preserved rather than discarded.</li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/dawn-3d-app/" class="btn-primary">Launch 3D App</a>
+          <a href="/dawn" class="btn-secondary">Back to rover brief</a>
+        </div>
+      </div>
+      <div class="glass-strong overflow-hidden rounded-[24px] p-5 md:p-6">
+        <div class="overflow-hidden rounded-[20px] border border-line bg-black">
+          <img src="/3d-preview.png" alt="DAWN 3D launch screen preview" class="w-full object-cover" />
+        </div>
+        <div class="mt-5 grid gap-3 md:grid-cols-2">
+          <div class="rounded-[18px] border border-line bg-white/4 p-4 text-sm leading-7 text-muted">Preview container is static on the portal page to avoid accidental scroll traps on mobile and interaction ambiguity inside an embedded canvas.</div>
+          <div class="rounded-[18px] border border-line bg-white/4 p-4 text-sm leading-7 text-muted">The actual 3D app launches in its own route, where the viewport can use the full screen without competing with surrounding page scroll.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

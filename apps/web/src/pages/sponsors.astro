@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SponsorTiers from '../components/SponsorTiers.astro';
+import { sponsors, sponsorReasons } from '../data/site';
+---
+<BaseLayout title="Sponsors — FISAT Rover Team" description="Sponsor section for the FISAT Rover Team." path="/sponsors">
+  <PageHero eyebrow="Sponsors" title="Sponsor content that reads like a serious partnership page." description="The tier structure, logos, and public blurbs are preserved from the official site, while the presentation shifts toward clearer hierarchy and less visual clutter." image="https://fisat.ac.in/wp-content/uploads/2026/02/team1.jpeg" />
+  <section class="pb-12">
+    <div class="shell">
+      <SponsorTiers tiers={sponsors} />
+    </div>
+  </section>
+  <section class="pb-20">
+    <div class="shell">
+      <div class="glass rounded-[28px] p-7 md:p-8">
+        <div class="eyebrow">Official sponsor-value copy</div>
+        <h2 class="h2 mt-3">Public reasons the team gives to partners</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {sponsorReasons.map((reason) => <div class="rounded-[18px] border border-line bg-white/4 p-4 text-sm leading-7 text-muted">{reason}</div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

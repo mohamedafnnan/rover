@@ -1,0 +1,19 @@
+---
+interface Item {
+  src: string;
+  alt: string;
+  caption: string;
+}
+interface Props { items: Item[]; }
+const { items } = Astro.props;
+---
+<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  {items.map((item) => (
+    <figure class="glass overflow-hidden rounded-[20px] p-3 card-hover">
+      <div class="aspect-[4/3] overflow-hidden rounded-[16px] border border-line bg-white/5">
+        <img src={item.src} alt={item.alt} loading="lazy" class="h-full w-full object-cover" />
+      </div>
+      <figcaption class="px-1 pb-1 pt-4 text-sm leading-6 text-muted">{item.caption}</figcaption>
+    </figure>
+  ))}
+</div>

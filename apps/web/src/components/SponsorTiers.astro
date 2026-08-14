@@ -1,0 +1,37 @@
+---
+interface SponsorItem {
+  name: string;
+  url: string;
+  blurb: string;
+  logo: string;
+}
+interface SponsorTier {
+  tier: string;
+  items: SponsorItem[];
+}
+interface Props {
+  tiers: SponsorTier[];
+}
+const { tiers } = Astro.props;
+---
+<div class="grid gap-6">
+  {tiers.map((tier) => (
+    <section class="glass rounded-[24px] p-5 md:p-7">
+      <div class="mb-5 flex items-center justify-between gap-4">
+        <h3 class="h3">{tier.tier}</h3>
+        <span class="kicker">{tier.items.length} partner{tier.items.length > 1 ? 's' : ''}</span>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {tier.items.map((item) => (
+          <a href={item.url} target="_blank" rel="noreferrer" class="glass rounded-[20px] p-5 card-hover">
+            <div class="flex min-h-24 items-center justify-center rounded-[18px] border border-line bg-white/5 p-5">
+              <img src={item.logo} alt={item.name} class="max-h-14 w-auto object-contain" loading="lazy" />
+            </div>
+            <h4 class="mt-4 text-lg font-semibold text-text">{item.name}</h4>
+            <p class="mt-2 text-sm leading-7 text-muted">{item.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</div>

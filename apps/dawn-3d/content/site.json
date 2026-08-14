@@ -1,0 +1,18 @@
+{
+  "name": "DAWN",
+  "subtitle": "The Interactive Mars Rover Experience",
+  "team": "FISAT Rover Team",
+  "institution": "Federal Institute of Science and Technology (FISAT)",
+  "location": "Angamaly, Kerala, India",
+  "tagline": "Build For Beyond",
+  "mission": "DAWN is an advanced Mars rover prototype engineered by the FISAT Rover Team, a passionate collective of engineering students from FISAT, Angamaly, Kerala. United by a strong enthusiasm for robotics and space technology, the team designs and builds innovative planetary exploration systems while proudly representing India at the International Rover Challenge, a premier global competition.",
+  "builtDifferent": "Engineered to operate in Mars-analogue environments, DAWN features an advanced suspension system, a multi-degree-of-freedom robotic arm for precise manipulation, and robust autonomous navigation. Built through strong interdisciplinary collaboration in mechanical, electronics, and software engineering, DAWN is designed to complete complex scientific and maintenance tasks, showcasing innovation and technical excellence.",
+  "canonicalUrl": "/",
+  "logo": "/fisat/images/logo.png",
+  "instituteLogo": "/fisat/images/FISAT_LOGO.png",
+  "socials": [
+    { "label": "Instagram", "handle": "@fisatroverteam", "url": "https://www.instagram.com/fisatroverteam/" },
+    { "label": "LinkedIn", "handle": "FISAT Rover", "url": "https://www.linkedin.com/company/fisat-rover" },
+    { "label": "Institute", "handle": "FISAT", "url": "https://fisat.ac.in" }
+  ]
+}
