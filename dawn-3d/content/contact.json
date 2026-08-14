@@ -1,0 +1,13 @@
+{
+  "primary": {
+    "team": "FISAT Rover Team",
+    "institute": "Federal Institute of Science and Technology (FISAT)",
+    "address": "Mookkannoor P.O., Angamaly, Ernakulam District, Kerala 683577, India",
+    "instituteUrl": "https://fisat.ac.in",
+    "roverUrl": "https://fisatrover.in"
+  },
+  "socials": [
+    { "label": "Instagram", "handle": "@fisatroverteam", "url": "https://www.instagram.com/fisatroverteam/" },
+    { "label": "LinkedIn",  "handle": "FISAT Rover",     "url": "https://www.linkedin.com/company/fisat-rover" }
+  ]
+}

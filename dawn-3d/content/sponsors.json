@@ -1,0 +1,56 @@
+{
+  "tiers": [
+    {
+      "id": "platinum",
+      "name": "Platinum Sponsors",
+      "accent": "#d5c07a",
+      "sponsors": [
+        {
+          "name": "General Datum",
+          "url": "https://generaldatum.com",
+          "logo": "/fisat/images/General-Datum-Header-Logo.png",
+          "blurb": "Full-stack Engineering, Product Design & Development company working with Defence, Aerospace and Data-centre customers. Title and Platinum sponsor of DAWN."
+        },
+        {
+          "name": "MRaD Enterprises",
+          "url": "https://mrad.co.in/",
+          "logo": "/fisat/images/sponsor.png",
+          "blurb": "Industry-grade support for performance-driven engineering projects. Title sponsor of the current season."
+        }
+      ]
+    },
+    {
+      "id": "gold",
+      "name": "Gold Sponsors",
+      "accent": "#e6b95c",
+      "sponsors": [
+        {
+          "name": "Senses",
+          "url": "https://senseselec.com",
+          "logo": "/fisat/images/spon.png",
+          "blurb": "Smart technology and reliable engineering tools."
+        }
+      ]
+    },
+    {
+      "id": "regular",
+      "name": "Regular Sponsors",
+      "accent": "#c66b1e",
+      "sponsors": [
+        {
+          "name": "FISAT",
+          "url": "https://fisat.ac.in",
+          "logo": "/fisat/images/FISAT_LOGO.png",
+          "blurb": "Federal Institute of Science and Technology — supporting innovation and academic excellence in engineering."
+        }
+      ]
+    }
+  ],
+  "valueProps": [
+    { "icon": "globe",    "title": "NASA-grade visibility",   "body": "Reach a global community of roboticists and industry leaders from organisations like ISRO and The Mars Society." },
+    { "icon": "flag",     "title": "Regional prestige",       "body": "Align your brand with the elite technical talent putting Kerala on the international engineering map." },
+    { "icon": "graph",    "title": "Applied R&D exposure",    "body": "Showcase your products in a hard-real-time robotics platform designed for a Mars-analogue environment." },
+    { "icon": "network",  "title": "Recruiting pipeline",     "body": "Direct access to interdisciplinary engineering talent across mechanical, electronics and software." },
+    { "icon": "trophy",   "title": "Competitive record",      "body": "Support a team with a documented track record at the International Rover Challenge and continuous SDDR milestones." }
+  ]
+}

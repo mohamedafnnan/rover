@@ -1,15 +1,19 @@
 {
-  "name": "fisat-dawn-website-2",
+  "name": "fisat-dawn-web",
   "private": true,
   "type": "module",
   "scripts": {
-    "install:all": "npm --prefix apps/dawn-3d install && npm --prefix apps/web install",
-    "build:3d": "npm --prefix apps/dawn-3d run build",
-    "sync:3d": "node scripts/sync-3d.mjs",
-    "build:web": "npm --prefix apps/web run build",
-    "build": "npm run build:3d && npm run sync:3d && npm run build:web",
-    "dev:web": "npm --prefix apps/web run dev",
-    "dev:3d": "npm --prefix apps/dawn-3d run dev",
-    "check:web": "npm --prefix apps/web run check"
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.4",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
   }
 }

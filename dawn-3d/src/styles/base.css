@@ -1,0 +1,199 @@
+/* DAWN · base + boot overlay */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;                   /* the experience is fullscreen */
+  overscroll-behavior: none;
+  touch-action: none;
+  cursor: default;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 70% -10%, #2a1408 0%, transparent 60%),
+    radial-gradient(900px 700px at -10% 110%, #0a1a1c 0%, transparent 55%),
+    var(--bg-void);
+}
+
+canvas#stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: var(--z-scene);
+}
+
+a { color: var(--accent-hi); text-decoration: none; }
+a:hover { color: var(--c-white); }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+::selection { background: var(--accent); color: var(--c-white); }
+
+.noscript {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  padding: var(--s-8);
+  background: var(--bg-void);
+  color: var(--text-primary);
+  text-align: center;
+  font-size: var(--fs-lead);
+}
+
+/* ============================================================
+   Boot overlay — first thing the user sees.
+   Stays until the first render pass completes.
+   ============================================================ */
+
+.boot {
+  position: fixed; inset: 0;
+  z-index: var(--z-boot);
+  display: grid;
+  place-items: center;
+  grid-auto-rows: min-content;
+  gap: var(--s-6);
+  background:
+    radial-gradient(600px 420px at 50% 40%, #2a1408 0%, transparent 65%),
+    var(--bg-void);
+  transition: opacity var(--t-cine) var(--ease-out);
+}
+
+.boot--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot__lockup {
+  text-align: center;
+  display: grid;
+  gap: var(--s-3);
+}
+
+.boot__mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 0.32em;
+  color: var(--c-white);
+  text-shadow: 0 0 40px rgba(255, 120, 60, 0.35);
+}
+
+.boot__sub {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--accent-hi);
+}
+
+.boot__bar {
+  width: min(360px, 60vw);
+  height: 2px;
+  background: var(--stroke-line);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.boot__bar > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-lo), var(--accent), var(--accent-hi));
+  transition: width var(--t-med) var(--ease-out);
+}
+.boot__pct {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+}
+
+/* Cinematic intro — full-viewport black wipe with title lockup. */
+.cine {
+  position: fixed; inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  background: #000;
+  color: var(--c-white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-cine) var(--ease-out);
+}
+.cine--visible { opacity: 1; pointer-events: auto; }
+
+.cine__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  letter-spacing: var(--ls-display);
+  text-align: center;
+  line-height: 0.95;
+}
+.cine__title strong {
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--accent-hi);
+  font-size: 0.34em;
+  margin-bottom: 1rem;
+}
+.cine__sub {
+  margin-top: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  text-align: center;
+}
+.cine__cta {
+  position: absolute;
+  bottom: var(--s-9);
+  left: 50%; transform: translateX(-50%);
+  padding: var(--s-3) var(--s-6);
+  border: 1px solid var(--stroke-line);
+  color: var(--c-white);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  transition: background var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+}
+.cine__cta:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(-50%) translateY(-2px); }
+
+/* A11y fallback view — same content as the 3D scene, in plain HTML. */
+.a11y-fallback {
+  position: fixed; inset: 0;
+  overflow-y: auto;
+  padding: var(--s-9) var(--s-7);
+  background: var(--bg-void);
+  color: var(--text-primary);
+  z-index: var(--z-modal);
+}
+.a11y-fallback[hidden] { display: none; }
+.a11y-fallback h1,
+.a11y-fallback h2 { font-family: var(--font-display); }
+.a11y-fallback section { max-width: 780px; margin: 0 auto var(--s-9); }

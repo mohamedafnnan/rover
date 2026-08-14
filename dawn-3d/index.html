@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="mars">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0605" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>DAWN · FISAT Rover Team · The Interactive Mars Rover Experience</title>
+    <meta
+      name="description"
+      content="DAWN is the official interactive Mars experience of the FISAT Rover Team. Drive DAWN across a handcrafted Martian world and discover the team, the mission, and the machine."
+    />
+    <meta property="og:title" content="DAWN · FISAT Rover Team" />
+    <meta property="og:description" content="Land on Mars. Drive the rover. Discover the team behind DAWN." />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/png" href="https://fisatrover.in/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/styles/tokens.css" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/hud.css" />
+  </head>
+  <body>
+    <!-- Boot overlay: hides the WebGL surface until first frame is ready. -->
+    <div id="boot" class="boot" aria-live="polite" aria-busy="true">
+      <div class="boot__lockup">
+        <div class="boot__mark">D · A · W · N</div>
+        <div class="boot__sub">calibrating telemetry</div>
+      </div>
+      <div class="boot__bar"><span id="boot-bar"></span></div>
+      <div class="boot__pct"><span id="boot-pct">0</span>%</div>
+    </div>
+
+    <!-- Single WebGL canvas — the entire experience renders here. -->
+    <canvas id="stage" aria-label="Mars surface, interactive rover experience"></canvas>
+
+    <!-- HUD, Codex, and cinematic overlays are injected by src/ui/*. -->
+    <div id="ui-root" aria-live="polite"></div>
+
+    <!-- Accessibility fallback for prefers-reduced-motion / ?a11y=1.
+         Populated at runtime from the same content JSON the 3D scene uses. -->
+    <main id="a11y-fallback" class="a11y-fallback" hidden></main>
+
+    <noscript>
+      <div class="noscript">
+        DAWN is a real-time 3D experience and requires JavaScript. Visit
+        <a href="https://fisatrover.in">fisatrover.in</a> for the classic website.
+      </div>
+    </noscript>
+
+    <script>
+      const __origConsoleError = console.error.bind(console);
+      console.error = (...args) => {
+        const msg = args.map((v) => String(v)).join(' ');
+        if (msg.includes('THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN')) return;
+        __origConsoleError(...args);
+      };
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
