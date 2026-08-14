@@ -1,0 +1,1 @@
+const a=[{src:"/fisat/images/Robo/about1.jpeg",caption:"DAWN — hero view"},{src:"/fisat/images/Robo/gal1.jpeg",caption:"Manipulator & suspension detail"},{src:"/fisat/images/Robo/p1.JPG.jpeg",caption:"IRC 2026 — Day 01 setup"}],s={items:a};export{s as default,a as items};

@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "q": "What is the FISAT Rover Team?",
+      "a": "A student engineering team from the Federal Institute of Science and Technology, Angamaly, Kerala. We design and build Mars rover prototypes to compete at the International Rover Challenge."
+    },
+    {
+      "q": "What is DAWN?",
+      "a": "DAWN is our current-season rover: a Mars-analogue prototype with a rocker-bogie suspension, a multi-DOF robotic arm and vision-guided autonomy."
+    },
+    {
+      "q": "Which competition do you compete in?",
+      "a": "The International Rover Challenge (IRC), a premier global rover competition. Our current campaign is IRC 2026."
+    },
+    {
+      "q": "How is the team organised?",
+      "a": "Six departments: Design & Manufacturing, Electrical, Controls & Embedded, AI & Autonomy, Science, and Research & Documentation. Each drives DAWN from a different angle."
+    },
+    {
+      "q": "Can I sponsor the team?",
+      "a": "Yes. We work with sponsors across three tiers — Platinum, Gold and Regular — and we tailor deliverables around your brand and recruiting goals. See the Sponsor Plaza in-experience or contact us directly."
+    },
+    {
+      "q": "How do I join the team?",
+      "a": "The Recruitment Center in this experience explains our intake process. In short: FISAT students apply, interview with the relevant department, and complete an onboarding project before joining a sub-team."
+    }
+  ]
+}

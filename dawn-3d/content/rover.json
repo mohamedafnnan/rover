@@ -1,0 +1,25 @@
+{
+  "name": "DAWN",
+  "callsign": "DAWN — Mars Rover Prototype",
+  "season": "IRC 2026",
+  "heroImage": "/fisat/images/Robo/about1.jpg",
+  "galleryImage": "/fisat/images/Robo/gal1.jpg",
+  "summary": "An advanced Mars rover prototype engineered to operate in Mars-analogue environments and complete complex scientific and maintenance tasks.",
+  "specs": [
+    { "label": "Suspension", "value": "Advanced suspension system" },
+    { "label": "Manipulator", "value": "Multi-degree-of-freedom robotic arm" },
+    { "label": "Autonomy", "value": "Robust autonomous navigation" },
+    { "label": "Electrical", "value": "Dual 25.2 V batteries with BMS and separate power lines" },
+    { "label": "Power board", "value": "Fused power board protecting rover subsystems" },
+    { "label": "Control stack", "value": "Jetson Nano plus ESP32 based control architecture" },
+    { "label": "Wheels", "value": "TPU wheels under development" }
+  ],
+  "armCallouts": [
+    { "joint": "shoulder-yaw",   "label": "Shoulder yaw",   "note": "Interactive callout for the manipulator base rotation." },
+    { "joint": "shoulder-pitch", "label": "Shoulder pitch", "note": "Interactive callout for the shoulder elevation joint." },
+    { "joint": "elbow",          "label": "Elbow",          "note": "Interactive callout for the main reach joint." },
+    { "joint": "wrist-pitch",    "label": "Wrist pitch",    "note": "Interactive callout for end-effector alignment." },
+    { "joint": "wrist-roll",     "label": "Wrist roll",     "note": "Interactive callout for wrist orientation." },
+    { "joint": "gripper",        "label": "Gripper",        "note": "Interactive callout for the end-effector grip state." }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "primary": {
+    "id": "irc-2026",
+    "name": "International Rover Challenge 2026",
+    "acronym": "IRC 2026",
+    "role": "Public 2026 campaign",
+    "summary": "A worldwide rover competition described by FISAT as requiring teams to design, build, and implement sophisticated rover systems capable of executing mission-specific tasks under simulated interplanetary environments.",
+    "referenceUrl": "https://fisat.ac.in/event/international-rover-challenge-irc-2026/",
+    "milestones": [
+      { "day": "Day 01", "title": "IRC Rover Expo", "status": "logged", "note": "Official rover-site diary entry covering the expo-style showcase and interactions with other teams at Manipal Institute of Technology, Udupi." },
+      { "day": "Day 02", "title": "TBD — needs team input", "status": "gap", "note": "The official IRC page currently marks Day 02 as TBA." },
+      { "day": "Day 03", "title": "TBD — needs team input", "status": "gap", "note": "The official IRC page currently marks Day 03 as TBA." }
+    ]
+  },
+  "tasks": [
+    { "id": "science",    "name": "Science Task",         "icon": "flask",   "blurb": "Mission-specific science work in a simulated interplanetary environment." },
+    { "id": "delivery",   "name": "Equipment Delivery",   "icon": "box",     "blurb": "Competition rover task category referenced by the team’s public materials." },
+    { "id": "servicing",  "name": "Equipment Servicing",  "icon": "wrench",  "blurb": "Competition rover task category referenced by the team’s public materials." },
+    { "id": "autonomy",   "name": "Autonomous Traversal", "icon": "cpu",     "blurb": "Competition rover task category referenced by the team’s public materials." }
+  ]
+}
